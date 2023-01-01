@@ -3,17 +3,17 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section">
-        {% if matrix is not none %}
+        {% if matrix is defined %}
             <div class="input">Matrix: 
                 <pre>{{matrix}}</pre>
             </div>
         {% endif %}
-        {% if inverse_matrix is not none %}
+        {% if inverse_matrix is defined %}
             <div class="output">Inverse matrix: 
                 <pre>{{inverse_matrix}}</pre>
             </div>
         {% endif %}
-        {% if error is not none %}
+        {% if error is defined %}
             <div class="error">Error: {{error}} </div>
         {% endif %}
         <form method="POST" action="">

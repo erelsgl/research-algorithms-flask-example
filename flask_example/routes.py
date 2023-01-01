@@ -21,18 +21,18 @@ def matrixpage():
     form = MatrixForm()
     if not form.validate_on_submit():
         form.matrix.data = matrixpage.matrix_string
-        return render_template('matrix.html', title='Data', form=form, inverse_matrix=None, error=None)
+        return render_template('matrix.html', title='Data', form=form)
     else:
         matrixpage.matrix_string = form.matrix.data
         try:
             matrix = np.matrix(matrixpage.matrix_string)
         except Exception  as error:
-            return render_template('matrix.html', title='Error', form=form, inverse_matrix=None, matrix=None, error=error)
+            return render_template('matrix.html', title='Error', form=form,  error=error)
 
         try:
             inverse_matrix = np.linalg.inv(matrix)
         except Exception  as error:
-            return render_template('matrix.html', title='Error', form=form, inverse_matrix=None, matrix=matrix, error=error)
+            return render_template('matrix.html', title='Error', form=form, matrix=matrix, error=error)
 
-        return render_template('matrix.html', title='Data', form=form, inverse_matrix=inverse_matrix, matrix=matrix, error=None)
+        return render_template('matrix.html', title='Data', form=form, matrix=matrix, inverse_matrix=inverse_matrix)
 matrixpage.matrix_string = "[1 2];\n[3 4]\n"
