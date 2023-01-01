@@ -4,3 +4,4 @@ wtforms
 email_validator
 gunicorn
 numpy
+fairpy @ git+https://github.com/erelsgl/fairpy.git

@@ -1,6 +1,8 @@
 from flask_example import app
 
-# To run:
+# To run (in Windows PowerShell):
+#          $Env:FLASK_ENV = "development"
+#          $Env:FLASK_APP = "run"
 #          flask run
 
 # To create Heroku app:
